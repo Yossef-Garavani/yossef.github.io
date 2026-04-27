@@ -2,28 +2,90 @@
 <html>
 <head>
     <title>Calculator</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .calculator {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input, select {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        button {
+            width: 80%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #444;
+        }
+    </style>
+
 </head>
 <body>
 
-    <h2>Simple Calculator</h2>
+    <div class="calculator">
+        <h2>✨ My Calculator ✨</h2>
 
-    <!-- שדות קלט -->
-    <input type="number" id="num1" placeholder="First number">
-    
-    <!-- ComboBox -->
-    <select id="operator">
-        <option value="+">+</option>
-        <option value="-">-</option>
-        <option value="*">*</option>
-    </select>
+        <input type="number" id="num1" placeholder="First number">
 
-    <input type="number" id="num2" placeholder="Second number">
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+        </select>
 
-    <!-- כפתור -->
-    <button onclick="calculate()">=</button>
+        <input type="number" id="num2" placeholder="Second number">
 
-    <!-- תוצאה -->
-    <p>Result: <span id="result"></span></p>
+        <button onclick="calculate()">=</button>
+
+        <div class="result">
+            Result: <span id="result">0</span>
+        </div>
+    </div>
 
     <script>
         function calculate() {
@@ -32,7 +94,9 @@
             let operator = document.getElementById("operator").value;
             let result;
 
-            if (operator === "+") {
+            if (isNaN(num1) || isNaN(num2)) {
+                result = "Enter numbers!";
+            } else if (operator === "+") {
                 result = num1 + num2;
             } else if (operator === "-") {
                 result = num1 - num2;

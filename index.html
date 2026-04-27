@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Calculator</title>
+    <title>Yossef's Calculator</title>
 
     <style>
         body {
@@ -10,7 +10,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #667eea, #764ba2);
         }
 
@@ -20,7 +20,7 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             text-align: center;
-            width: 300px;
+            width: 330px;
         }
 
         h2 {
@@ -62,13 +62,45 @@
             font-weight: bold;
             color: #444;
         }
-    </style>
 
+        .profile-buttons {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .profile-button {
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 12px;
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .profile-button:hover {
+            transform: scale(1.05);
+        }
+
+        .linkedin {
+            background: #0077b5;
+        }
+
+        .github {
+            background: #24292e;
+        }
+    </style>
 </head>
+
 <body>
 
     <div class="calculator">
-        <h2>The Calculator of Yossef</h2>
+        <h2>Yossef's Calculator</h2>
 
         <input type="number" id="num1" placeholder="First number">
 
@@ -84,6 +116,16 @@
 
         <div class="result">
             Result: <span id="result">0</span>
+        </div>
+
+        <div class="profile-buttons">
+            <a class="profile-button linkedin" href="https://www.linkedin.com/in/yossef-garavani" target="_blank">
+                🔗 Visit My LinkedIn Profile
+            </a>
+
+            <a class="profile-button github" href="https://github.com/Yossef-Garavani" target="_blank">
+                💻 Visit My GitHub Profile
+            </a>
         </div>
     </div>
 
@@ -107,15 +149,6 @@
             document.getElementById("result").innerText = result;
         }
     </script>
-
-    <footer style="margin-top: 30px;">
-    <p>
-        Connect with me on 
-        <a href="www.linkedin.com/in/yossef-garavani" target="_blank" style="color:#667eea; font-weight:bold;">
-            LinkedIn
-        </a>
-    </p>
-</footer>
 
 </body>
 </html>
